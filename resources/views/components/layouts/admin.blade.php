@@ -35,7 +35,7 @@
       <div id="menu" class="menu-wrap hide">
         <!-- Logo -->
         <div>
-          <a class="site-name" href="dashboard.html">
+          <a class="site-name" href="{{ route('admin.dashboard') }}">
             <div class="logo">
               <img src="{{asset('theme_asset/dash/img/logo.png') }}" alt="" />
             </div>
@@ -46,7 +46,7 @@
         <ul class="insideScroll text-white mt-2">
 
           <li class="hover">
-            <a href="Hello" class="">
+            <a href="{{ route('admin.dashboard') }}" class="">
               <i class="fas fa-house-damage"></i>
               Overview
             </a>
@@ -74,10 +74,13 @@
           </li>
 
           <li class="hover">
-            <a href="logout.html" class="">
+            <form action="{{ route('logout') }}" method="POST">
+              @csrf
+              <button type="submit" class="btn btn-one">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
               Logout
-            </a>
+              </button>
+             </form>
           </li>
         </ul>
       </div>
