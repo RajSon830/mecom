@@ -1,34 +1,23 @@
 <div>
+    <div class="com_card mx-2">
+              <h3 class="com_card_title mb-3">All Orders</h3>
 
-    <h1>Order Management</h1>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Product</th>
+                      <th>Quantity</th>
+                      <th>Price Per Item</th>
+                      <th>Total Price</th>
+                      <th>User</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
 
-    <table>
-
-    <thead>
-
-        <tr>
-
-            <th>Order ID</th>
-
-            <th>Product</th>
-
-            <th>Quantity</th>
-
-            <th>Price Per Item</th>
-
-            <th>Total Price</th>
-
-            <th>User</th>
-
-            <th>Status</th>
-
-            <th>Actions</th>
-
-        </tr>
-
-    </thead>
-
-    <tbody>
+                 <tbody>
 
         @foreach ($orders as $order)
 
@@ -50,9 +39,9 @@
 
                 <td>
 
-                    <button wire:click="approveOrder({{ $order->id }})">Approve</button>
+                    <button class="btn btn-primary" wire:click="approveOrder({{ $order->id }})">Approve</button>
 
-                    <button wire:click="cancelOrder({{ $order->id }})">Cancel</button>
+                    <button class="btn btn-danger"  wire:click="cancelOrder({{ $order->id }})">Cancel</button>
 
                 </td>
 
@@ -62,6 +51,10 @@
 
     </tbody>
 
-</table>
-
+                </table>
+              </div>
+            </div>
 </div>
+
+
+

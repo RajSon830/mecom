@@ -1,29 +1,50 @@
-<div >
+<div>
+       <div class="main-content">
+          <div class="container-fluid">
+            <!-- add cat form -->
+            <div class="com_card mx-2">
+              <h3 class="com_card_title mb-3">Add New Category</h3>
 
-    <h2 >Manage Categories</h2>
+              <form wire:submit.prevent="saveCategory" >
+                <label for="" class="form_label">Category Name</label>
+                <input type="text"  wire:model="name" class="form-input" />
 
-    <form wire:submit.prevent="saveCategory" >
+                <button type="submit" class="btn-one mt-3">Add Category</button>
+              </form>
 
-        <input type="text" wire:model="name" placeholder="Category Name"  />
+              @if (session()->has('message'))
 
-        <button type="submit">Add Category</button>
+                <div class="alert alert-success mt-2">{{ session('message') }}</div>
 
-    </form>
+              @endif
+            </div>
 
-    @if (session()->has('message'))
+            <!-- categories table -->
 
-        <div>{{ session('message') }}</div>
+            <div class="com_card mx-2">
+              <h3 class="com_card_title mb-3">All Categories</h3>
 
-    @endif
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Category Name</th>
+                    </tr>
+                  </thead>
 
-    <ul>
-
-        @foreach ($categories as $category)
-
-            <li>{{ $category->name }}</li>
-
-        @endforeach
-
-    </ul>
+                  <tbody>
+                    @foreach ($categories as $category)
+                    <tr>
+                      <td>{{ $category->id }}</td>
+                      <td>{{ $category->name }}</td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+     </div>
 
 </div>
